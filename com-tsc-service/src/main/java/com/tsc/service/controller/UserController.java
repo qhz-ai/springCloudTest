@@ -18,6 +18,7 @@ public class UserController {
     @GetMapping("{id}")
     @ResponseBody
     public User queryById(@PathVariable("id") Long id){
+
         return this.userService.queryById(id);
     }
 }
