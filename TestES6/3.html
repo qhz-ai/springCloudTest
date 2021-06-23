@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<h2> num:{{num}}</h2>
+<!--使用子组件的时候,传递到num到子组件中-->
+<counter :num="num" @inc="increment" @dec="decrement"></counter>
+</div>
+<script>
+
+    Vue.component("counter",{
+        //子组件,定义了两个按钮,点击数字会加会减
+        template:'<div><button @click="plus">加</button>' +
+        '<button @click="reduce">减</button>' +
+        '</div>',
+        props:['num'],
+        methods:{
+            plus(){
+                this.$emit("inc");
+            },
+            reduce(){
+                this.$emit("dec")
+            }
+        }
+
+    })
+    var app=new Vue({
+        el:"#app",
+        data:{
+            num:0
+        },
+        methods:{
+            increment:function () {
+                this.num++;
+            },
+            decrement:function () {
+                this.num--;
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

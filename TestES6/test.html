@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 开发环境版本，包含了用帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <!-- <input type="text" v-model="num">
+    {{name}},非常帅,有{{num}}个美女着迷
+    <button @Click="add">dd</button>
+
+    <input type="checkbox" v-model="langue" value="java">Java<br>
+    <input type="checkbox" v-model="langue" value="php">Php<br>
+    <input type="checkbox" v-model="langue" value="phthon">python<br>
+    <h1>
+        你选择了{{langue.join(",")}}
+    </h1>
+
+    &lt;!&ndash;事件中直接写js片段&ndash;&gt;
+    <button @Click="num2++">增加一个</button>
+    &lt;!&ndash;事件指定一个回调函数,必须是Vue实例中定义的函数&ndash;&gt;
+    <button @Click="decrement">减少一个</button>
+    <h1>有{{num2}}个没考虑</h1>-->
+
+    <!--右击事件,并阻止默认事件发生
+    <button v-on:contextmenu.prevent="num++">增加一个</button>
+    &lt;!&ndash;右击事件,不阻止默认事件发生&ndash;&gt;
+    <button v-on:contextmenu="decrement($event)">减少一个</button>
+
+    <ul>
+        <li v-for="(user,index) in users">
+            {{index}}.{{user.name}}-{{user.gender}}-{{user.age}}
+        </li>
+    </ul>-->
+    <!--<button @Click="show = !show">点我雅</button>
+    <br>
+    <h1 v-if="show">
+        看到我啦?
+    </h1>
+    <h1 v-if="show">
+        看到我啦?show
+    </h1>-->
+
+  <!--  <ul>
+        <li v-for="(user,index) in users" v-if="user.gender == '女'">
+            {{index}}-{{user.name}}-{{user.gender}}&#45;&#45;{{user.age}}
+        </li>
+
+    </ul>-->
+ <!--   <h1 v-if="Math.random()>0.5">
+        看到我啦 if
+    </h1>
+    <h1 v-else>
+        看到我啦 else
+    </h1>-->
+    <!--可以使数据模型,可以是具有返回值的js代码块或者函数-->
+<!--
+    <div v-bind:title="title" style="border: 1px solid #2c38ff; width: 50px; height: 50px;"></div>
+-->
+   <!-- <div v-bind:class="activeClass"></div>
+    <div v-bind:class="errorClass"></div>
+    <div v-bind:class="[activeClass,errorClass]"></div>
+    <div v-bind:class="{active : isActive}"></div>-->
+    <input type="text" v-model="message">
+</div>
+
+<script>
+    var app=new Vue({
+
+        el:"#app",
+        data:{
+          /*activeClass:'active',
+            errorClass:['text-danger','text-error'],
+            isActive: true,*/
+          message:""
+        },
+        methods:{
+            add:function () {
+                this.num++;
+                console.log(this)
+            },
+            decrement:function (ev) {
+                this.num2--;
+            }
+        },
+        watch:{
+          message(newVal,oldVal){
+              console.log(newVal,oldVal)
+          }
+        },
+        created:function () {
+         this.num=100;
+
+        }
+    })
+</script>
+</body>
+</html>

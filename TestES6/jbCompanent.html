@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<h2>开设如下课程:</h2>
+    <!--使用子组件的同时,传递属性,这里使用v-bind,指向了福组件的自己的属性lessons-->
+    <mylist :items="lessons"></mylist>
+</div>
+<script>
+   const mylist={
+       template:'<ul>' +
+       '<li v-for="item in items" :key="item.id">{{item.id}}:{{item.name}}</li>' +
+       '</ul>',
+       props:{
+           items:{
+               type:Array,
+               default:[],
+               required:true
+
+           }
+       }
+   }
+   var app=new Vue({
+       el:"#app",
+       components:{
+           mylist
+       },
+       data:{
+           lessons:[
+               {id:1, name: 'java'},
+               {id:2, name: 'php'},
+               {id:3, name: 'ios'},
+           ]
+       }
+   })
+</script>
+</body>
+</html>

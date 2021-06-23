@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="tsc-maven:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="tsc-maven.war">
+      <element id="artifact" artifact-name="tsc-maven:war exploded" />
+    </root>
+  </artifact>
+</component>
